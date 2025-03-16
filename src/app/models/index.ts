@@ -1,0 +1,2 @@
+// files
+export * from './team';
