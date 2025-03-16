@@ -6,11 +6,11 @@ import { EMPTY, firstValueFrom, of } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as actions from '../actions';
 import * as selectors from '../selectors';
-import { CompanyListLoaderService } from './company-list-loader.service';
-import { CompanyListApiService } from './company-list-api.service';
+import { TeamListLoaderService } from './team-list-loader.service';
+import { TeamListApiService } from './team-list-api.service';
 
-describe('CompanyListLoaderService', () => {
-  let service: CompanyListLoaderService;
+describe('TeamListLoaderService', () => {
+  let service: TeamListLoaderService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -25,14 +25,14 @@ describe('CompanyListLoaderService', () => {
         }),
         provideMockNowService(),
         {
-          provide: CompanyListApiService,
+          provide: TeamListApiService,
           useValue: {
             getList: jasmine.createSpy('getList').and.returnValue(EMPTY),
           },
         },
       ],
     });
-    service = TestBed.inject(CompanyListLoaderService);
+    service = TestBed.inject(TeamListLoaderService);
   });
 
   it('should be created', () => {
@@ -40,7 +40,7 @@ describe('CompanyListLoaderService', () => {
   });
 
   it('should make the API call for list', async () => {
-    const apiService = TestBed.inject(CompanyListApiService);
+    const apiService = TestBed.inject(TeamListApiService);
     (apiService.getList as jasmine.Spy).and.returnValue(of([]));
 
     const store: MockStore = TestBed.inject(Store) as MockStore;

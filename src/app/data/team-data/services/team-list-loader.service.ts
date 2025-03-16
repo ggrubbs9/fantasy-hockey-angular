@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 
 import { Store } from '@ngrx/store';
 import { NowService } from 'src/app/core/services/now.service';
-import { createLoader } from '@dmc/ngrx-helpers';
 import * as actions from '../actions';
 import * as selectors from '../selectors';
-import { CompanyListApiService } from './company-list-api.service';
+import { TeamListApiService } from './team-list-api.service';
+import { createLoader } from '@hockey/ngrx-helpers/lib/loading-state/get/loader-factory/factory';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CompanyListLoaderService {
+export class TeamListLoaderService {
   constructor(
-    private api: CompanyListApiService,
+    private api: TeamListApiService,
     private store: Store,
     private now: NowService,
   ) {}

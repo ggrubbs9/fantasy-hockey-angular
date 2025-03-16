@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
-import { companyListFeatureKey } from './feature-name.const';
-import { companyListReducer } from './reducers';
+import { teamListFeatureKey } from './feature-name.const';
+import { teamListReducer } from './reducers';
 
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    StoreModule.forFeature(companyListFeatureKey, companyListReducer),
+    StoreModule.forFeature(teamListFeatureKey, teamListReducer),
   ],
 })
-export class CompanyDataModule {}
+export class TeamDataModule {}

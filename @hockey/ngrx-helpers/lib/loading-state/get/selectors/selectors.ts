@@ -1,0 +1,11 @@
+import { Selector } from '@ngrx/store';
+import { ISODateString } from '../../../date';
+import { GetterLoadingState } from '../models';
+import { GetterPropertySelectors } from './models';
+export declare function getterIsLoading<TError = number>(state?: GetterLoadingState<TError>): boolean;
+export declare function getterHasError<TError = number>(state?: GetterLoadingState<TError>): boolean;
+export declare function getterError<TError = number>(state?: GetterLoadingState<TError>): TError | null;
+export declare function getterHasSucceeded<TError = number>(state?: GetterLoadingState<TError>): boolean;
+export declare function getterShouldLoad<TError = number>(state?: GetterLoadingState<TError>): boolean;
+export declare function getterLastSuccess<TError = number>(state?: GetterLoadingState<TError>): ISODateString | null;
+export declare function getterProperties<TError = number>(stateSelector: Selector<any, GetterLoadingState<TError> | undefined>): GetterPropertySelectors<TError>;
