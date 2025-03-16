@@ -1,12 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
+import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { provideMockMainAPI } from 'src/app/core/mock-api-path.token';
 import { Company } from 'src/app/models';
 import { CompanyListApiService } from './company-list-api.service';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 describe('CompanyListApiService', () => {
   let service: CompanyListApiService;
@@ -14,9 +12,9 @@ describe('CompanyListApiService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [provideMockMainAPI()],
-    });
+    imports: [],
+    providers: [provideMockMainAPI(), provideHttpClient(withInterceptorsFromDi()), provideHttpClientTesting()]
+});
     service = TestBed.inject(CompanyListApiService);
     httpTestingController = TestBed.inject(HttpTestingController);
   });
